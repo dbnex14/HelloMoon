@@ -1,6 +1,7 @@
 package com.learning.dino.hellomoon;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ public class HelloMoonFragment extends Fragment {
     private Button mPlayButton;
     private Button mPauseButton;
     private Button mStopButton;
+    private Button mPlayVideo;
 
 
     public HelloMoonFragment() {
@@ -79,6 +81,14 @@ public class HelloMoonFragment extends Fragment {
                 mPlayer.stop();
                 updateButtons();
                 mPauseButton.setEnabled(false);
+            }
+        });
+        mPlayVideo = (Button)v.findViewById(R.id.play_videoButton);
+        mPlayVideo.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                mPlayer.stop();
+                Intent i = new Intent(getActivity(), HelloMoonVideoContainerActivity.class);
+                startActivity(i);
             }
         });
 

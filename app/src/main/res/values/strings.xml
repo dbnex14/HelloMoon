@@ -6,9 +6,10 @@
     <string name="hellomoon_stop">Stop</string>
     <string name="hellomoon_pause">Pause</string>
     <string name="hellomoon_resume">Resume</string>
+    <string name="play_videoButton">Play Video</string>
     <string name="hellomoon_description">Neil Armstrong stepping onto the moon</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hellomoon_audio_title">Moon Landing</string>
+    <string name="hellomoon_video_title">Apollo 17 stroll</string>
+
 
 </resources>
