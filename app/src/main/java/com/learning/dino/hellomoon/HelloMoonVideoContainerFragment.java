@@ -4,7 +4,6 @@ package com.learning.dino.hellomoon;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -27,6 +26,12 @@ public class HelloMoonVideoContainerFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        //retain fragment so it is not destroyed on device rotation or other configuration change
+        setRetainInstance(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,11 +42,14 @@ public class HelloMoonVideoContainerFragment extends Fragment {
         mSurfaceHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                mPlayer = MediaPlayer.create(getActivity(), R.raw.apollo_17_stroll);
+                //mPlayer = MediaPlayer.create(getActivity(), R.raw.apollo_17_stroll);
                 if (mPlayer == null){
-                    Log.i("mPlayer ", "is null");
+                    mPlayer = MediaPlayer.create(getActivity(), R.raw.apollo_17_stroll);
+                    //Log.i("mPlayer ", "is null");
+                }else{
+                    mPlayer.setDisplay(mSurfaceHolder);
                 }
-                mPlayer.setDisplay(mSurfaceHolder);
+                //mPlayer.setDisplay(mSurfaceHolder);
                 mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mPlayer){
@@ -63,7 +71,7 @@ public class HelloMoonVideoContainerFragment extends Fragment {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
+                mPlayer.setDisplay(null);
             }
         });
 
