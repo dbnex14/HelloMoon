@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">HalloMond</string>
+  <string name="hellomoon_play">Spielen</string>
+  <string name="hellomoon_pause">Pause</string>
+  <string name="hellomoon_stop">Aufhören</string>
+  <string name="hellomoon_resume">Fortsetzen</string>
+  <string name="play_videoButton">Video Abspielen</string>
+  <string name="hellomoon_image_description">Neil Armstrong auf den Mond Schritt</string>
+</resources>
